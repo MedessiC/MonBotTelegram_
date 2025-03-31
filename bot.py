@@ -1,8 +1,14 @@
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
+import os
+from telegram import Bot
 
-# Ton token
-TOKEN = "7637246376:AAGJ-cyNQzvxHY-CEInesWpNa569_LniEIo"
+TOKEN = os.getenv("TOKEN") 
+
+bot = Bot(token=TOKEN)
+
+
+
 
 # Boutons sous la barre de saisie
 keyboard = [
@@ -15,9 +21,9 @@ reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 # Présentation captivante du bot
 async def start(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(
-        "👋 ** Bienvenue sur mon assistant pro !\n\n"
-        "🔥 Je suis un expert en **automatisation & développement **.\n"
-        "💡 Mon objectif ? Vous aider à **optimiser votre travail ** avec la technologie.\n\n"
+        "👋  Bienvenue sur mon assistant pro !\n\n"
+        "🔥 Je suis un expert en automatisation & développement .\n"
+        "💡 Mon objectif ? Vous aider à optimiser votre travail  avec la technologie.\n\n"
         "📌 Découvrez mes services et contactez-moi 👇",
         reply_markup=reply_markup
     )
@@ -25,45 +31,45 @@ async def start(update: Update, context: CallbackContext) -> None:
 # Présentation détaillée
 async def qui_suis_je(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(
-        "👨‍💻 **À propos de moi** :\n"
-        "🔹 Passionné par l'**intelligence artificielle & l'automatisation**.\n"
-        "🔹 Expert en **Python, machine learning, et automatisation**.\n"
-        "🔹 J'aide les entreprises et particuliers à **gagner du temps & booster leur productivité**.\n\n"
-        "📌 **Cliquez sur un bouton ci-dessous** pour en savoir plus !"
+        "👨‍💻 À propos de moi :\n"
+        "🔹 Passionné par l'intelligence artificielle & l'automatisation.\n"
+        "🔹 Expert en Python, machine learning, et automatisation.\n"
+        "🔹 J'aide les entreprises et particuliers à gagner du temps & booster leur productivité.\n\n"
+        "📌 Cliquez sur un bouton ci-dessous pour en savoir plus !"
     )
 
 # Présentation des services
 async def services(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(
-        "📌 **Mes services :**\n"
-        "✅ Développement de **chatbots & assistants virtuels**\n"
-        "✅ Automatisation de tâches avec **Python**\n"
+        "📌 Mes services :\n"
+        "✅ Développement de chatbots & assistants virtuels\n"
+        "✅ Automatisation de tâches avec Python\n"
         "✅ Scraping & extraction de données\n"
         "✅ Conseil en technologie & IA\n\n"
-        "📅 **Prenez rendez-vous** pour discuter de vos besoins !"
+        "📅 Prenez rendez-vous pour discuter de vos besoins !"
     )
 
 # Prendre un rendez-vous
 async def rendezvous(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(
-        "📅 **Prendre un rendez-vous :**\n"
-        "🔹 Contactez-moi directement via **Telegram** ou **email**.\n"
-        "🔹 Discutons de votre projet et trouvons **une solution adaptée** !\n"
-        "📞 Cliquez sur **Contact** pour plus d’infos."
+        "📅 Prendre un rendez-vous :\n"
+        "🔹 Contactez-moi directement via Telegram ou email.\n"
+        "🔹 Discutons de votre projet et trouvons une solution adaptée !\n"
+        "📞 Cliquez sur Contact pour plus d’infos."
     )
 
 # Télécharger un ebook
 async def ebook(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(
-        "📚 **Ebook du mois :**\n"
+        "📚 Ebook du mois :\n"
         "📖 [Téléchargez ici](https://drive.google.com/file/d/1W7ienO1NqaTtIwmBnPtU38_f_ox2BfaE/view?usp=drive_link)\n\n"
-        "🔥 Découvrez mes **ressources exclusives** pour booster votre carrière tech. Apprenez à programmer en Python !"
+        "🔥 Découvrez mes ressources exclusives pour booster votre carrière tech. Apprenez à programmer en Python !"
     )
 
 # Informations de contact
 async def contact(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(
-        "📞 **Me contacter :**\n"
+        "📞 Me contacter :\n"
         "💬 Telegram : @medessi19\n"
         "📧 Email : vivotinc@gmail.com.com\n"
         "🌍 Github : [ProjetGit ](https://github.com/MedessiC)"
@@ -72,10 +78,10 @@ async def contact(update: Update, context: CallbackContext) -> None:
 # Témoignages clients
 async def temoignages(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(
-        "💬 **Témoignages clients :**\n"
+        "💬 Témoignages clients :\n"
         "🗣️ *'Super développeur, il a automatisé toutes mes tâches !'* - Client A\n"
         "🗣️ *'Son chatbot m'a fait gagner du temps et de l'argent !'* - Client B\n\n"
-        "📌 **Envie d’un projet ? Contactez-moi !**"
+        "📌 Envie d’un projet ? Contactez-moi !"
     )
 
 # Gérer les réponses aux boutons
